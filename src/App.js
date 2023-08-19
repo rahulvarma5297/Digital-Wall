@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import Home from "./components/Wall/Wall";
+import Posts from "./components/Board/Board";
+import Bookmark from "./components/Bookmark/Bookmark";
+
+// export const AppContext = React.createContext();
+import { ContextProvider } from "./Context";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextProvider>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/posts/:id" element={<Posts />} />
+            <Route path="/bookmarks" element={<Bookmark />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ContextProvider>
   );
 }
 

@@ -1,0 +1,390 @@
+.card {
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-title {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.card-title .bookmark-icon {
+  margin-right: 5px;
+}
+
+.card-image {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card-content p {
+  margin: 0 0 10px;
+}
+
+.options-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.options-menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.options-menu-icon:hover {
+  background-color: #eaeaea;
+}
+
+.options-menu-icon::before,
+.options-menu-icon::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: #888;
+  border-radius: 50%;
+}
+
+.options-menu-icon::before {
+  margin-right: 2px;
+}
+
+.options-menu-icon::after {
+  margin-left: 2px;
+}
+
+.bookmark-icon {
+  margin-right: 5px;
+}
+
+.options-menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  min-width: 120px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.options-menu-item {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.options-menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.card .options-menu-dropdown.show {
+  display: block;
+}
+
+.dl-btn-2 {
+  padding: 4px 10px;
+  margin-inline: 10px;
+  font-weight: 700;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.dl-btn-2:hover {
+  color: red;
+  background-color: white;
+}
+.ed-btn-2 {
+  padding: 4px 10px;
+  margin-inline: 10px;
+  font-weight: 700;
+  background-color: rgb(60, 226, 137);
+  border: 1px solid rgb(60, 226, 137);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.ed-btn-2:hover {
+  color: rgb(60, 226, 137);
+  background-color: white;
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+}
+.content .heading {
+  font-weight: 900;
+  font-size: 3rem;
+  text-align: left;
+}
+.content .create-button {
+  margin-left: auto;
+  margin-top: -45px;
+  display: inline-flex;
+  align-items: center;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 12px;
+}
+.content .create-button .plus-icon {
+  margin-right: 5px;
+}
+.content .add-something-icon {
+  font-size: 48px;
+  color: #888;
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+.content .no-posts-text {
+  color: #888;
+  font-size: small;
+}
+.content .no-posts-text .p1 {
+  font-weight: bold;
+  color: #000000;
+  margin-top: 5%;
+  margin-bottom: 1%;
+}
+.content .create-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.add-something-icon img {
+  height: 120px;
+  margin-top: 70px;
+}
+
+.ps-cn {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  padding: 50px;
+}
+
+.hf-cn {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hf-cn .img1 {
+  height: 50%;
+}
+
+.hf-cn .img2 {
+  height: 60px;
+}
+
+.cr-btn {
+  position: absolute;
+  right: 20px;
+  top: 80px;
+
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: #d8334f;
+  border: none;
+
+  font-weight: 500;
+  height: 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.cr-btn:hover {
+  background-color: #af273e;
+}
+
+.post-text {
+  font-weight: 500;
+}
+
+.post-sub {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin: 2%;
+}
+
+.post-head {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1%;
+}
+
+.photo-upload-btn {
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  width: 130px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.7;
+  gap: 8px;
+}
+.photo-upload-btn .icon {
+  margin-right: 4px;
+}
+
+/* Post Item */
+.post-card {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 2rem auto;
+  background-color: white;
+  width: 250px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.post-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.post-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.post-icon {
+  cursor: pointer;
+  font-size: large;
+}
+
+.post-icon .centered-dots {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 10px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.post-icon .dot {
+  width: 4px;
+  height: 4px;
+  background-color: black;
+  border-radius: 50%;
+  margin: 1px 0;
+}
+
+.post-icon .options {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 46, 57, 0.15);
+
+  position: relative;
+  top: 5px;
+  left: 45px;
+
+  width: 120px;
+}
+
+.post-icon .option {
+  cursor: pointer;
+  padding: 3px;
+}
+
+.post-date {
+  margin-left: 1rem;
+}
+
+.post-date-text {
+  font-weight: 600;
+  font-size: 1rem;
+  opacity: 0.5;
+}
+
+.post-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.post-rounded-img {
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.post-content {
+  padding: 1rem;
+  font-size: 1.3rem;
+  color: black;
+  line-height: 1.7rem;
+  word-spacing: 1px;
+}
+
+.post-divider {
+  width: 220px;
+  border: 1px solid #e0e0e0;
+  margin: 0 auto;
+}
+
+.post-likes {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: #b0b0b0;
+}
+
+.post-likes-count {
+  margin-left: 0.5rem;
+}

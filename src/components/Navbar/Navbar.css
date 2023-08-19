@@ -1,0 +1,45 @@
+.navbar {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid rgba(211, 186, 186, 0.195);
+}
+
+.navbar .logo {
+  margin-right: auto;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10%;
+}
+.logo img {
+  height: 40px;
+}
+.navbar .search-bar {
+  margin: 0 30px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 300px;
+  height: 35px;
+  background-size: 15px;
+  padding-left: 30px;
+  z-index: -1;
+}
+.navbar .create-button {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: #d8334f;
+  border: none;
+
+  font-weight: 500;
+  height: 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
