@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+
 import { AppContext } from "../../Context";
-import "./Posts.css";
-import pencil from "../images/pencil.svg";
 import del from "../images/del.svg";
+import pencil from "../images/pencil.svg";
+import "./Posts.css";
 
 const PostItem = (props) => {
   const [showOptions, setShowOptions] = useState(false);
