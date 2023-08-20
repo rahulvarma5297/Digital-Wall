@@ -1,13 +1,19 @@
-## 
+## Steps to run the project:
 
-To run the Celestial project, follow the instructions below:
+1. Download the zip
+2. Open terminal
+3. run `npm install` to install the required dependencies.
+4. run `npm start` to start the project.
 
-1. Clone the project from the GitHub repository: `https://github.com/charan1409/project`
 
-2. Open two terminals.
+## Basic functionalities:
+Wall -> user can create, update and delete boards.
+board -> user can create, update and delete posts.
 
-3. In each terminal, `cd` into the `client` and `server` folders respectively.
+user can like posts.
+user can search boards by title in the wall.
+user can search posts by title in particular board.
 
-4. In both folders, run `npm install` to install the required dependencies.
-
-5. In both terminals, run `npm start` to start the client and server.
+## Bonus functionalities:
+user can able to bookmark posts.
+Hosted the react app.
