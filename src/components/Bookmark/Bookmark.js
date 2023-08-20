@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import leftarrow from "../images/LeftArrow.svg";
 import img from "../images/smlogo.jpeg";
 import { AppContext } from "../../Context";
 import Post from "../Board/Post";
+import srch from "../images/search.svg";
 
 const Bookmark = () => {
   const { store, setStore } = React.useContext(AppContext);
   const [data, setData] = React.useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     // fetch all the posts which has bookmark 1
@@ -38,12 +40,24 @@ const Bookmark = () => {
           <img src={leftarrow} alt="Logo" className="img1" />
 
           <img src={img} alt="Logo" className="img2" />
-          <span className="logo-text">Book Marks</span>
+          <span className="logo-text">My bookmarks</span>
         </Link>
 
         <span className="post-icon ">
-          <Link to={'/bookmarks'}>
-            <i className="bi bi-bookmark"></i>
+          <div class="search-box">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search posts.."
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
+            <img src={srch} alt="search" />
+          </div>
+          <span class="vertical-line"> </span>
+          <Link to={"/bookmarks"}>
+            <i className="bi bi-bookmark-fill"></i>
           </Link>
         </span>
       </div>
@@ -57,21 +71,31 @@ const Bookmark = () => {
         }}
       >
         {data &&
-          data.map((element) => {
-            return (
-              <Post
-                key={element.id}
-                title={element.title}
-                image={element.image}
-                content={element.content}
-                like={element.like}
-                date={element.date}
-                parentid={element.id}
-                count={element.count}
-                bookmark={element.bookmark}
-              />
-            );
-          })}
+          data
+            ?.filter((val) => {
+              if (search === "") {
+                return val;
+              } else if (
+                val.title.toLowerCase().includes(search.toLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .map((element) => {
+              return (
+                <Post
+                  key={element.id}
+                  title={element.title}
+                  image={element.image}
+                  content={element.content}
+                  like={element.like}
+                  date={element.date}
+                  parentid={element.id}
+                  count={element.count}
+                  bookmark={element.bookmark}
+                />
+              );
+            })}
       </div>
     </div>
   );

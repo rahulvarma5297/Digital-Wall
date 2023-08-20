@@ -144,6 +144,7 @@
   font-weight: 900;
   font-size: 3rem;
   text-align: left;
+  margin-left: 5%;
 }
 .content .create-button {
   margin-left: auto;
@@ -204,6 +205,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
 }
 
 .hf-cn .img1 {
@@ -256,7 +258,7 @@
 
 .photo-upload-btn {
   display: flex;
-  align-items: center;  
+  align-items: center;
   justify-content: center;
   margin-top: 4px;
   border: 1px solid #ccc;
@@ -278,6 +280,7 @@
   margin: 2rem auto;
   background-color: white;
   width: 250px;
+  position: relative;
 }
 
 .post-header {
@@ -312,8 +315,8 @@
 }
 
 .post-icon .dot {
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   background-color: black;
   border-radius: 50%;
   margin: 1px 0;
@@ -330,16 +333,20 @@
   border-radius: 5px;
   box-shadow: 0px 5px 10px rgba(0, 46, 57, 0.15);
 
-  position: relative;
-  top: 5px;
-  left: 45px;
+  position: absolute;
+  top: 20px;
+  right: -100px;
 
   width: 120px;
+  z-index: 100;
 }
 
 .post-icon .option {
   cursor: pointer;
   padding: 3px;
+  opacity: 0.7;
+  font-size: 1.5rem;
+  text-align: left;
 }
 
 .post-date {
@@ -387,4 +394,76 @@
 
 .post-likes-count {
   margin-left: 0.5rem;
+}
+
+.post-search {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  width: 20%;
+}
+
+.search-box {
+  position: absolute;
+  top: 5%;
+  right: 4%;
+  transform: translate(-3%, -50%);
+  background: #ffffff;
+  height: 40px;
+  /* border: #000000 solid 1px; */
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.search-input {
+  outline: none;
+  border: none;
+  background: none;
+  width: 0;
+  padding: 0;
+  color: black;
+  float: left;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.search-input::placeholder {
+  color: black;
+  margin-bottom: 10px;
+}
+
+.search-btn {
+  color: black;
+  float: right;
+  width: 40px;
+  height: 10px;
+  border-radius: 5px;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.search-input:focus,
+.search-input:not(:placeholder-shown) {
+  width: 240px;
+  padding: 0 6px;
+}
+
+.search-box:hover > .search-input {
+  width: 240px;
+  padding: 0 6px;
+}
+
+.search-box:hover {
+  border: #000000 solid 1px;
+}
+
+.search-box:hover > .search-btn,
+.search-input:focus + .search-btn,
+.search-input:not(:placeholder-shown) + .search-btn {
+  background: #fff;
+  color: #cd595a;
 }

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Wall.css";
+import pencil from "../images/pencil.svg";
+import del from "../images/del.svg";
 
 import { AppContext } from "../../Context";
 
@@ -32,8 +34,18 @@ const Board = (props) => {
                 setStore({ ...store, pop: true, parentId: props.id });
               }}
             >
+              <img
+                src={pencil}
+                alt="pencil"
+                style={{
+                  height: "1.5rem",
+                  width: "1.5rem",
+                  marginRight: "5px",
+                }}
+              />
               Edit
             </div>
+
             <div
               className="option"
               onClick={() => {
@@ -42,7 +54,17 @@ const Board = (props) => {
                 });
                 setStore({ ...store, pop: false });
               }}
+              style={{ color: "red" }}
             >
+              <img
+                src={del}
+                alt="del"
+                style={{
+                  height: "1.5rem",
+                  width: "1.5rem",
+                  marginRight: "5px",
+                }}
+              />
               Delete
             </div>
           </div>

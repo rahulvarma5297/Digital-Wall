@@ -4,6 +4,7 @@ import { AppContext } from "../../Context";
 import "./Navbar.css";
 import img from "../images/logoName.jpeg";
 import plus from "../images/plus.svg";
+import search from "../images/search.svg";
 
 const Navbar = (props) => {
   const store = React.useContext(AppContext);
@@ -16,16 +17,17 @@ const Navbar = (props) => {
           </Link>
         </div>
         <div>
-          <i
-            className="fas fa-search"
+          <img
+            src={search}
+            alt="search"
             style={{
-              marginLeft: "0px",
-              position: "absolute",
-              top: "1.5rem",
-              left: "2rem",
-              color: "red",
+              height: "1.5rem",
+              width: "1.5rem",
+              position: "relative",
+              top: "0.3rem",
+              left: "5.5rem",
             }}
-          ></i>
+          />
           <input
             type="search"
             className="search-bar"

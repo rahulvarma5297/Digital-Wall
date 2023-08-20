@@ -20,9 +20,6 @@ body {
   border: none;
   text-decoration: none;
   transition: all 0.2s linear;
-
-  background-color: black;
-  color: white;
 }
 
 html {

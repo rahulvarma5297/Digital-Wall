@@ -10,6 +10,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { AppContext } from "../../Context";
 import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import srch from "../images/search.svg";
 
 import axios from "axios";
 
@@ -23,14 +24,16 @@ const Posts = (props) => {
   const [postTitle, setPostTitle] = useState("");
   const [postDesc, setPostDesc] = useState("");
   const [image, setImage] = useState("");
+  const [bgcolor, setBgcolor] = useState("#A7F0F9");
 
   useEffect(() => {
     store.data.map((element) => {
       if (element.id === id) {
         setTitle(element.name);
+        setBgcolor(element.color);
       }
     });
-  }, []);
+  }, [id, store.data]);
 
   useEffect(() => {
     const parent_id = store.parentId;
@@ -63,7 +66,6 @@ const Posts = (props) => {
     const post = store.data.filter((element) => {
       return element.id === id;
     });
-    setPostTitle(post[0].name);
     setMypost(post[0].posts);
   }, [id, store.data]);
   return (
@@ -84,16 +86,18 @@ const Posts = (props) => {
             <img src={img} alt="Logo" className="img2" />
             <span className="logo-text">{title}</span>
           </Link>
-
-          <input
-            type="text"
-            placeholder="search"
-            className="wall-input wall-pd-1"
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-          />
-
+          <div class="search-box">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search posts.."
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
+            <img src={srch} alt="search" />
+          </div>
+          <span class="vertical-line"> </span>
           <span className="post-icon ">
             <Link to={"/bookmarks"}>
               <i className="bi bi-bookmark"></i>
@@ -105,7 +109,7 @@ const Posts = (props) => {
           className="content"
           style={{
             display: mypost.length === 0 ? "block" : "none",
-            backgroundColor: "rgba(167, 240, 249, 0.5)",
+            backgroundColor: `${bgcolor}`,
           }}
         >
           <h2 className="heading">Your posts</h2>
@@ -122,8 +126,7 @@ const Posts = (props) => {
           className="ps-cn"
           style={{
             display: mypost.length === 0 ? "none" : "flex",
-            backgroundColor: "rgba(167, 240, 249, 0.5)",
-            height: "90vh",
+            backgroundColor: `${bgcolor}`,
           }}
         >
           {mypost
@@ -173,13 +176,25 @@ const Posts = (props) => {
           className="wall-cr"
           style={{ display: toogle === 1 ? "flex" : "none" }}
         >
-          <div className="wall-pp" style={{ height: "38rem", width: "35rem" }}>
+          <div
+            className="wall-pp"
+            style={{
+              height: `${store.childId ? "42rem" : "35rem"}`,
+              width: "35rem",
+            }}
+          >
             <br />
             <div className="wall-w90 pp-hd">
               <div className="wall-f1">Create a post</div>
               <button
                 onClick={(e) => {
                   setToogle(0);
+                  setStore({
+                    ...store,
+                    pop: false,
+                    childId: "",
+                    parentId: "",
+                  });
                 }}
                 className="wall-bt-cl"
               >
@@ -202,10 +217,16 @@ const Posts = (props) => {
             />
             <div className="wall-w90 ">
               <br />
-              <label htmlFor="fileInput" className="photo-upload-btn">
-                <i className="bi bi-image"></i>
-                Add your image
-              </label>
+              {store.childId === "" && (
+                <label htmlFor="fileInput" className="photo-upload-btn">
+                  <i className="bi bi-image"></i>
+                  Add your image
+                </label>
+              )}
+              {store.childId && (
+                <img src={image} alt="" width="100px" height="100px" />
+              )}
+
               <input
                 type="file"
                 id="fileInput"
@@ -276,6 +297,17 @@ const Posts = (props) => {
                   setStore({ ...store, pop: false });
                   setToogle(0);
                 } else {
+                  const formData = new FormData();
+                  formData.append("file", image);
+                  formData.append("upload_preset", "vyppr29e");
+                  const response = await axios.post(
+                    "https://api.cloudinary.com/v1_1/dkxyvztrd/image/upload",
+                    formData
+                  );
+                  const url = response.data.secure_url;
+                  // if childId is present then update the post
+                  store.childId ? setImage(url) : setImage(image);
+
                   const parent_id = store.parentId;
                   const child_id = store.childId;
                   const new_data = store.data.map((element) => {

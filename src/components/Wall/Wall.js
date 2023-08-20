@@ -25,7 +25,7 @@ const Home = (props) => {
         : ""
     );
   }, [store.data, store.parentId]);
-  const colors = ["#FFCC66", "#FFAEC0", "#C5C5FC", "#A7F0F9"];
+  const colors = ["#A7F0F9", "#C5C5FC", "#FFAEC0", "#FFCC66"];
   return (
     <>
       <Navbar />

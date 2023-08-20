@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { AppContext } from "../../Context";
 import "./Posts.css";
+import pencil from "../images/pencil.svg";
+import del from "../images/del.svg";
 
 const PostItem = (props) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -18,11 +20,7 @@ const PostItem = (props) => {
           </div>
           <div className="post-icons">
             <span className="post-icon ">
-              <i
-                className="bi bi-bookmark"
-                style={{
-                  color: props.bookmark === 0 ? "white" : "yellow",
-                }}
+              <div
                 onClick={() => {
                   const parent_id = props.dataid;
                   const child_id = props.parentid;
@@ -46,7 +44,16 @@ const PostItem = (props) => {
                   console.log(new_data);
                   setStore({ ...store, data: new_data });
                 }}
-              ></i>
+              >
+                {props.bookmark === 0 ? (
+                  <i className="bi bi-bookmark"></i>
+                ) : (
+                  <i
+                    className="bi bi-bookmark-fill"
+                    style={{ color: "yellow" }}
+                  ></i>
+                )}
+              </div>
             </span>
             <span className="post-icon">
               <div
@@ -70,6 +77,15 @@ const PostItem = (props) => {
                         props.setToogle(1);
                       }}
                     >
+                      <img
+                        src={pencil}
+                        alt="pencil"
+                        style={{
+                          height: "1.5rem",
+                          width: "1.5rem",
+                          marginRight: "5px",
+                        }}
+                      />
                       Edit
                     </div>
                     <div
@@ -89,7 +105,18 @@ const PostItem = (props) => {
                         console.log(new_data);
                         setStore({ ...store, data: new_data });
                       }}
+
+                      style={{ color: "red" }}
                     >
+                      <img
+                        src={del}
+                        alt="del"
+                        style={{
+                          height: "1.5rem",
+                          width: "1.5rem",
+                          marginRight: "5px",
+                        }}
+                      />
                       Delete
                     </div>
                   </div>
@@ -110,11 +137,7 @@ const PostItem = (props) => {
         <div className="post-divider"></div>
         <div className="post-likes">
           <span className="post-icon">
-            <i
-              className="bi bi-heart"
-              style={{
-                color: props.like === 0 ? "white" : "red",
-              }}
+            <div
               onClick={() => {
                 const parent_id = props.dataid;
                 const child_id = props.parentid;
@@ -138,7 +161,13 @@ const PostItem = (props) => {
                 console.log(new_data);
                 setStore({ ...store, data: new_data });
               }}
-            ></i>
+            >
+              {props.like === 0 ? (
+                <i className="bi bi-heart"></i>
+              ) : (
+                <i className="bi bi-heart-fill" style={{ color: "red" }}></i>
+              )}
+            </div>
           </span>
           <span className="post-likes-count">{props.count}</span>
         </div>

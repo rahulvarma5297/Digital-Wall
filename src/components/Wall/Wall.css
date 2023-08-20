@@ -1,5 +1,5 @@
 .wall-pb {
-  width: 364px;
+  width: 400px;
   height: 80px;
   display: flex;
   border: 1px solid rgb(218, 218, 218);
@@ -19,9 +19,11 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  font-size: 1.5rem;
 }
 a {
   text-decoration: none;
+  color: black;
 }
 
 .wall-bx {
@@ -150,11 +152,12 @@ a {
   height: 80px;
   width: 20px;
   cursor: pointer;
+  margin-right: 15px;
 }
 
 .wall-pb .dot {
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   background-color: black;
   border-radius: 50%;
   margin: 1px 0;
@@ -173,7 +176,7 @@ a {
 
   position: relative;
   top: 45px;
-  left: 35px;
+  left: 50px;
 
   width: 120px;
   z-index: 1;
@@ -182,4 +185,14 @@ a {
 .wall-pb .option {
   cursor: pointer;
   padding: 3px;
+  opacity: 0.7;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  text-align: left;
+}
+.vertical-line {
+  width: 1px;
+  height: 20px;
+  background-color: black; /* Change the color if desired */
+  margin: 0 10px; /* Adjust the margin as needed */
 }
