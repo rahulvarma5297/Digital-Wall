@@ -179,7 +179,7 @@ const Posts = (props) => {
           <div
             className="wall-pp"
             style={{
-              height: `${store.childId ? "42rem" : "35rem"}`,
+              height: `${store.childId ? "47rem" : "35rem"}`,
               width: "35rem",
             }}
           >
@@ -217,12 +217,10 @@ const Posts = (props) => {
             />
             <div className="wall-w90 ">
               <br />
-              {store.childId === "" && (
                 <label htmlFor="fileInput" className="photo-upload-btn">
                   <i className="bi bi-image"></i>
                   Add your image
                 </label>
-              )}
               {store.childId && (
                 <img src={image} alt="" width="100px" height="100px" />
               )}
@@ -297,6 +295,7 @@ const Posts = (props) => {
                   setStore({ ...store, pop: false });
                   setToogle(0);
                 } else {
+                  // add the new image to cloudinary
                   const formData = new FormData();
                   formData.append("file", image);
                   formData.append("upload_preset", "vyppr29e");
@@ -305,8 +304,6 @@ const Posts = (props) => {
                     formData
                   );
                   const url = response.data.secure_url;
-                  // if childId is present then update the post
-                  store.childId ? setImage(url) : setImage(image);
 
                   const parent_id = store.parentId;
                   const child_id = store.childId;
@@ -316,7 +313,7 @@ const Posts = (props) => {
                         if (post.id === child_id) {
                           post.title = postTitle;
                           post.content = postDesc;
-                          post.image = image;
+                          post.image = url;
                         }
                         return post;
                       });

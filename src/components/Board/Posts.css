@@ -467,3 +467,9 @@
   background: #fff;
   color: #cd595a;
 }
+
+.wall-w90 img {
+  position: relative;
+  left: 50%;
+  top: -5%;
+}
