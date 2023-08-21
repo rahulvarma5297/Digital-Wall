@@ -5,6 +5,7 @@ import img from "../images/smlogo.jpeg";
 import { AppContext } from "../../Context";
 import Post from "../Board/Post";
 import srch from "../images/search.svg";
+import img2 from "../images/pic1.svg";
 
 const Bookmark = () => {
   const { store, setStore } = React.useContext(AppContext);
@@ -17,7 +18,9 @@ const Bookmark = () => {
     store.data.map((element) => {
       element.posts.filter((post) => {
         if (post.bookmark === 1) {
-          bookmarkedPosts.push(post);
+          // bookmarkedPosts.push(post);
+          // push parent id also
+          bookmarkedPosts.push([element.id, post]);
         }
       });
     });
@@ -70,7 +73,7 @@ const Bookmark = () => {
           height: "90vh",
         }}
       >
-        {data &&
+        {data.length > 0 &&
           data
             ?.filter((val) => {
               if (search === "") {
@@ -84,19 +87,40 @@ const Bookmark = () => {
             .map((element) => {
               return (
                 <Post
-                  key={element.id}
-                  title={element.title}
-                  image={element.image}
-                  content={element.content}
-                  like={element.like}
-                  date={element.date}
-                  parentid={element.id}
-                  count={element.count}
-                  bookmark={element.bookmark}
+                  key={element[1].id}
+                  title={element[1].title}
+                  image={element[1].image}
+                  content={element[1].content}
+                  like={element[1].like}
+                  date={element[1].date}
+                  dataid={element[0]}
+                  parentid={element[1].id}
+                  setToggle={null}
+                  count={element[1].count}
+                  bookmark={element[1].bookmark}
                 />
               );
             })}
       </div>
+
+      <div
+          className="content"
+          style={{
+            display: data.length === 0 ? "block" : "none",
+            backgroundColor: "#A7F0F9",
+          }}
+        >
+          <h2 className="heading">Your Bookmark's</h2>
+          <div className="add-something-icon">
+            <img src={img2} alt="img" />
+            <div className="no-posts-text">
+              <p className="p1">Nothing here yet.</p>
+              <p>Create your first post by clicking the + button above.</p>
+            </div>
+          </div>
+        </div>
+
+
     </div>
   );
 };

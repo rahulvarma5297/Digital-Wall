@@ -10,7 +10,9 @@ const PostItem = (props) => {
   const { store, setStore } = React.useContext(AppContext);
 
   const toggleOptions = () => {
-    setShowOptions(!showOptions);
+    if (props.setToggle !== null) {
+      setShowOptions(!showOptions);
+    }
   };
   return (
     <div>
@@ -106,7 +108,6 @@ const PostItem = (props) => {
                         console.log(new_data);
                         setStore({ ...store, data: new_data });
                       }}
-
                       style={{ color: "red" }}
                     >
                       <img
