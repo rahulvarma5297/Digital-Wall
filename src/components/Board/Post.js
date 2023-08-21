@@ -10,9 +10,7 @@ const PostItem = (props) => {
   const { store, setStore } = React.useContext(AppContext);
 
   const toggleOptions = () => {
-    if (props.setToggle !== null) {
-      setShowOptions(!showOptions);
-    }
+    setShowOptions(!showOptions);
   };
   return (
     <div>
@@ -58,7 +56,12 @@ const PostItem = (props) => {
                 )}
               </div>
             </span>
-            <span className="post-icon">
+            <span
+              className="post-icon"
+              style={{
+                display: props.setToggle !== null ? "block" : "none",
+              }}
+            >
               <div
                 className="centered-dots"
                 onMouseEnter={toggleOptions}
