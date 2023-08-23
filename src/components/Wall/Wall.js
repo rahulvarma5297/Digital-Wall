@@ -72,7 +72,7 @@ const Home = (props) => {
               <button
                 className="wall-bt-cl"
                 onClick={(e) => {
-                  setStore({ ...store, pop: false });
+                  setStore({ ...store, pop: false, parentId: "" });
                 }}
               >
                 X
