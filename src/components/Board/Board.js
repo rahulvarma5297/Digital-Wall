@@ -70,7 +70,7 @@ const Posts = (props) => {
   }, [id, store.data]);
   return (
     <div>
-      <div style={{}}>
+      <div>
         <div
           className="navbar"
           style={{
@@ -274,7 +274,6 @@ const Posts = (props) => {
                   );
                   const url = response.data.secure_url;
 
-                  // date I need like 21 Jan
                   const date = new Date();
                   const month = date.toLocaleString("default", {
                     month: "short",
